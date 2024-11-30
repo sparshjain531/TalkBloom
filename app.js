@@ -104,14 +104,12 @@ io.on("connection", (socket) => {
     })
 
     socket.on(START_TYPING,({members, chatId})=>{
-        console.log("start - typing", chatId);
 
         const membersSockets=getSockets(members);
         socket.to(membersSockets).emit(START_TYPING,{chatId});
     });
 
     socket.on(STOP_TYPING,({members, chatId})=>{
-        console.log("stop - typing", chatId);
 
         const membersSockets=getSockets(members);
         socket.to(membersSockets).emit(STOP_TYPING,{chatId});
